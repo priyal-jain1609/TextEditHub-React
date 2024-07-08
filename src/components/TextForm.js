@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 
 
 export default function TextForm(props) {
+
     const handleUpClick=()=>{
         if (text.trim() === "") {
             props.showAlert("Text is empty. Please enter some text.", "danger");
@@ -88,14 +89,15 @@ export default function TextForm(props) {
 
 <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode==='light'?'white':'grey', color: props.mode==='light'?'black':'white'}} id="myBox" rows="5"></textarea>
 </div>
-<button className="btn btn-primary mx-1 my-1"onClick={handleUpClick}>Convert to UpperCase</button >   
-<button className="btn btn-primary mx-1 my-1"onClick={handleLowClick}>Convert to LowerCase</button >     
-<button className="btn btn-primary mx-1 my-1"onClick={handleClearClick}>Clear the text</button >  
-<button className="btn btn-primary mx-1 my-1"onClick={handleRemoveExtraSpacesClick}>Remove Extra Space</button > 
-<button className="btn btn-primary mx-1 my-1"onClick={handleCopyClick}>Copy Text</button > 
+<button className="btn btn-primary mx-1 my-1" onClick={handleUpClick} style={{ cursor: 'pointer' }}>Convert to UpperCase</button >   
+<button className="btn btn-primary mx-1 my-1"onClick={handleLowClick} style={{ cursor: 'pointer' }}>Convert to LowerCase</button >     
+<button className="btn btn-primary mx-1 my-1"onClick={handleClearClick} style={{ cursor: 'pointer' }}>Clear the text</button >  
+<button className="btn btn-primary mx-1 my-1"onClick={handleRemoveExtraSpacesClick} style={{ cursor: 'pointer' }}>Remove Extra Space</button > 
+<button className="btn btn-primary mx-1 my-1"onClick={handleCopyClick} style={{ cursor: 'pointer' }}>Copy Text</button > 
+
 </div>
 <div>
-<input 
+<input className="my-1 mx-1"
                     type="text" 
                     value={oldWord}
                     onChange={(e) => setOldWord(e.target.value)}
@@ -109,11 +111,12 @@ export default function TextForm(props) {
                 />
                 <button className="btn btn-primary mx-1 my-1"onClick={() => handleReplaceClick(oldWord, newWord)}>Replace Word</button >    
                 </div>
+
     <div className="container my-3" style={{color: props.mode==='light'?'black':'white'}}>
-        <h1> Your Text Summary </h1>
-        <p>{text.split(" ").filter((element)=> {return element.length!==0}).length} words, {text.length} characters</p>
-        <p>{0.08*text.split(" ").filter((element)=> {return element.length!==0}).length} Minutes to read the text</p>
-        <h2>Preview</h2>
+        <h4> Your Text Summary </h4>
+        <p>{text.split(/\S+/).filter((element)=> {return element.length!==0}).length} words, {text.length} characters</p>
+        <p>{0.08*text.split(/\S+/).filter((element)=> {return element.length!==0}).length} Minutes to read the text</p>
+        <h4>Preview</h4>
         <p>{text.length>0?text:"Enter something to Preview it"}</p>
 
 

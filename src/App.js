@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import './App.css';
-import About from './components/About';
+// import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
@@ -30,7 +30,7 @@ function App() {
     setMode('dark');
     document.body.style.backgroundColor="grey";
     showAlert("Dark Mode has been Enabled","success");
-    document.title="TextUtils- DarkMode"
+    // document.title="TextUtils- DarkMode"
     // setInterval(() => {
     //   document.title="TextUtils is Amazing"
       
@@ -40,7 +40,7 @@ function App() {
       setMode('light');
       document.body.style.backgroundColor="white";
       showAlert("Light Mode has been Enabled","success");
-      document.title="TextUtils- LightMode"
+      // document.title="TextUtils- LightMode"
       // setInterval(() => {
       //   document.title="Install TextUtils is Now"
         
@@ -55,8 +55,8 @@ function App() {
       <Alert alert={alert} />
       <div className="container my-3">
         <Routes>
-          <Route exact path="/about" element={<About mode={mode}/>} />
-          <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Enter the text to analyze" mode={mode} />} />
+          {/* <Route exact path="/about" element={<About mode={mode}/>} /> */}
+          <Route exact path="/" element={<TextForm showAlert={showAlert} heading="TextEditHub- Word and Character Counter" mode={mode} />} />
         </Routes>
       </div>
     </Router>
